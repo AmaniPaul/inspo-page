@@ -1,30 +1,34 @@
-//isolates all logic for calling the weather API and formatting the data
 import { useEffect, useState } from 'react';
-import * as api from '../services/weatherService';
+import { getCurrentWeather } from '../api/weather';
 
-export function useWeather({ units = 'imperial' } = {}) {
+// Hook handles geolocation + fetch + basic status flags
+export function useWeather(units = 'metric') {
   const [data, setData] = useState(null);
-  const [status, setStatus] = useState('idle'); // idle | loading | success | error
+  const [status, setStatus] = useState('idle'); // 'idle' | 'loading' | 'success' | 'error'
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    let ignore = false;
+    let canceled = false;
+
     async function run() {
+      setStatus('loading');
       try {
-        setStatus('loading');
-        // quick geolocation with fallback
-        const pos = await new Promise((res, rej) => {
-          navigator.geolocation.getCurrentPosition(p => res(p.coords), rej, { timeout: 8000 });
-        }).catch(() => ({ latitude: 40.7128, longitude: -74.006 })); // NYC fallback
-        const w = await api.getCurrent({ lat: pos.latitude, lon: pos.longitude, units });
-        if (!ignore) { setData(w); setStatus('success'); }
+        const coords = await new Promise((resolve) => {
+          navigator.geolocation.getCurrentPosition(
+            pos => resolve({ lat: pos.coords.latitude, lon: pos.coords.longitude }),
+            () => resolve({ lat: 40.7128, lon: -74.0060 }) // fallback: NYC
+          );
+        });
+        const w = await getCurrentWeather({ ...coords, units });
+        if (!canceled) { setData(w); setStatus('success'); }
       } catch (e) {
-        if (!ignore) { setError(e); setStatus('error'); }
+        if (!canceled) { setError(e); setStatus('error'); }
       }
     }
-    run();
-    return () => { ignore = true; };
-  }, [units]);
 
-  return { data, status, error };
-}
+    run();
+    return () => { canceled = true; };
+    }, [units]
+
+    return { data, status, error };
+};
