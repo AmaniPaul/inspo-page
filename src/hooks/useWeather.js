@@ -1,3 +1,4 @@
+//isolates all logic for calling the weather API and formatting the data
 import { useEffect, useState } from 'react';
 import * as api from '../services/weatherService';
 
