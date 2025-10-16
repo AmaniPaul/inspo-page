@@ -1,21 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState, useEffect, useReducer } from 'react';
+import {useWeather} from './hooks/useWeather';
+import WeatherCard from './components/WeatherCard';
 
-function App() {
-  const [count, setCount] = useState(0)
+export default function App() {
+  const [units, setUnits] = useState('imperial');
+  const weather = useWeather(units);
 
   return (
     <>
-      
-      <h1>Inspirational Homepage</h1>
-      <div className="card">
-        
+    <h1>Inspirational Homepage</h1>
+    <div className="container">
+      <div className="grid">
+        <WeatherCard data={weather.data} status={weather.status} onUnitsChange={setUnits}/>
       </div>
-      
+    </div>
     </>
-  )
+  );
 }
-
-export default App

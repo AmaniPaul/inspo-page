@@ -28,7 +28,7 @@ export function useWeather(units = 'metric') {
 
     run();
     return () => { canceled = true; };
-    }, [units]
+    }, [units])
 
     return { data, status, error };
 };
