@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {getRandomQuote} form '../api/quotes';
+import {getRandomQuote} from '../api/quotes';
 
 export function useQuote() {
     const [quote, setQuote] = useState(null);
@@ -16,6 +16,6 @@ export function useQuote() {
         }
     };
 
-    useEffect(() => {refresh{}; }, []);
+    useEffect(() => {refresh(); }, []);
     return {quote, status, refresh}; 
 }
