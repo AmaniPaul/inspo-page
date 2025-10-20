@@ -1,7 +1,9 @@
-import {fetchJson} from './fetchJson';
+import {fetchJson} from './fetchJson.js';
 
 export async function getRandomQuote() {
-    const data = await fetchJson('https://zenquotes.io/api/quotes');
-    const q = data?.[0] || {};
-    return {text: q.q || 'Keep going.', author: q.a || 'Unknown'};
+    //const data = await fetchJson('https://api.zenquotes.io/api/quotes/random');
+    const data = await fetchJson('https://api.realinspire.live/v1/quotes/random');
+
+    const quote = data?.[0] || {};
+    return {text: quote.content || 'Keep going.', author: quote.author || 'Unknown'};
 }

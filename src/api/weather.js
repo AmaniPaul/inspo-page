@@ -1,4 +1,4 @@
-import {fetchJson} from './fetchJson';
+import {fetchJson} from './fetchJson.js';
 
 const API = 'https://api.openweathermap.org/data/2.5/weather';
 const KEY = import.meta.env.VITE_WEATHER_API_KEY;

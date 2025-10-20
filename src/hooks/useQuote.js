@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import {getRandomQuote} from '../api/quotes';
+import {getRandomQuote} from '../api/quotes.js';
 
 export function useQuote() {
     const [quote, setQuote] = useState(null);
