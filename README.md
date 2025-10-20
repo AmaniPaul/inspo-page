@@ -4,7 +4,7 @@
 A simple dashboard where users can: 
 
 - [x] Check the current weather (via OpenWeather API)
-- [x] Read an inspirational quote [from api realinspire.live/v1]
+- [x] Read an inspirational quote [from api.realinspire.live/v1]
 - [] View inspirational images
 - [] Create, complete, and delete daily goals (stored locally)
 
