@@ -16,12 +16,12 @@ export function useImages(topic='inspiration') {
                     setImages(rows); 
                     setIndex(0);
                     setStatus('success');
-                } catch (e) {
+                } 
+            } catch (e) {
                     if (!canceled) {
                         setStatus('error');
                     }
                 }
-            }
         }
         run();
         return () => {

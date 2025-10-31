@@ -1,7 +1,7 @@
 import {fetchJson} from './fetchJson.js';
-const KEY = import.meta.env.VITE_IMAGES_API_KEY;
+const KEY = import.meta.env.VITE_IMAGES_API_KEY
 
-export async function getInspirationaalImages(topic='inspiration', perPage=10) {
+export async function getInspirationalImages(topic='inspiration', perPage=10) {
     const url = 'https://api.unsplash.com/search/photos?query=${encodeURIComponent(topic)}&per_page=${perPage}';
     const data = await fetchJson(url, {headers: { Authorization: 'Client-ID ${KEY}' } });
 

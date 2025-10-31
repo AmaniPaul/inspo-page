@@ -6,7 +6,7 @@ export default function ImageCarousel({current, status, onPrev, onNext}) {
             {current && (
                 <figure className="carousel">
                     <img src={current.url} alt={current.alt} />
-                    <figcaption className="small" style={{position: 'absolute', right:10, bottom:8, background: 'rgba(0,0,0,0.5)', padding: '4px 6px' borderRadius: 8}}>
+                    <figcaption className="small" style={{position: 'absolute', right:10, bottom:8, background: 'rgba(0,0,0,0.5)', padding: '4px 6px', borderRadius: 8}}>
                         {current.credit}
                     </figcaption>
                     <div className="nav">
