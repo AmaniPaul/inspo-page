@@ -11,18 +11,19 @@ export default function GoalForm({onAdd}) {
         }
         onAdd(t);
         setText('');
+    }
 
-        return (
-            <form onSubmit={submit} className="row" style={{gap: 8, marginBottom: 12}}>
-                <input
-                    value={text}
-                    onChange={e=>setText(e.target.value)}
-                    placeholder="Write a goal..."
-                    aria-label="Goal text"
-                    style={{flex:1}}
-                />
-                <button type="submit">Add</button>
-            </form>
-        )
-    };
+    return (
+        <form onSubmit={submit} className="row" style={{gap: 8, marginBottom: 12}}>
+            <input
+                value={text}
+                onChange={e=>setText(e.target.value)}
+                placeholder="Write a goal..."
+                aria-label="Goal text"
+                style={{flex:1}}
+            />
+            <button type="submit">Add</button>
+        </form>
+    
+    );
 }
