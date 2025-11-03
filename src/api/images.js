@@ -2,7 +2,7 @@ import { fetchJson } from './fetchJson.js';
 
 const KEY = import.meta.env.VITE_PEXELS_API_KEY;
 
-export async function getInspirationalImages(topic = 'inspiration', perPage = 10) {
+export async function getInspirationalImages(topic = 'inspiration', perPage = 30) {
   if (!KEY) throw new Error('Missing VITE_PEXELS_API_KEY in .env');
 
   const url = `https://api.pexels.com/v1/search?query=${encodeURIComponent(topic)}&per_page=${perPage}`;

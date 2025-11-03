@@ -61,8 +61,17 @@ export default function App() {
     <h1>Inspirational Homepage</h1>
     <div className="container">
       <div className="grid">
-        <WeatherCard data={weather.data} status={weather.status} onUnitsChange={setUnits}/>
-        <QuoteCard quote={quote.quote} status={quote.status} onRefresh={quote.refresh} />
+        <WeatherCard 
+          data={weather.data} 
+          status={weather.status} 
+          onUnitsChange={setUnits}
+          units={units}
+        />
+        <QuoteCard 
+          quote={quote.quote} 
+          status={quote.status} 
+          onRefresh={quote.refresh} 
+        />
         <ImageCarousel
           current={images.current}
           status={images.status}

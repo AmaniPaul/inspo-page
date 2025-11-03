@@ -18,7 +18,7 @@ function WeatherIcon({ icon, description }) {
     );
 }
 
-export default function WeatherCard({data, status, onUnitsChange}) {
+export default function WeatherCard({data, status, onUnitsChange, units}) {
     if (status==='loading') {
         return <section className="card">Loading weather...</section>;
     }
@@ -44,7 +44,12 @@ export default function WeatherCard({data, status, onUnitsChange}) {
                 </div>
                 <label>
                     Units 
-                    <select onChange={e => onUnitsChange(e.target.value)} aria-label="Units" style={{marginLeft:8}}>
+                    <select 
+                        value={units}
+                        onChange={e => onUnitsChange(e.target.value)} 
+                        aria-label="Units" 
+                        style={{marginLeft:8}}
+                    >
                         <option value="imperial">F°</option>
                         <option value="metric">C°</option>
                     </select>
