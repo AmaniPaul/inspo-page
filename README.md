@@ -1,7 +1,7 @@
 Inspirational Homepage — React App
 
 A motivational productivity dashboard built with React + Vite, where users can:
-
+```text
 🌤️ Check the current weather (via OpenWeather API)
 
 🌅 View inspirational images (via Pexels API)
@@ -9,9 +9,9 @@ A motivational productivity dashboard built with React + Vite, where users can:
 💬 Read inspirational quotes (via the Real Inspire API)
 
 🎯 Create, complete, and delete daily goals (saved locally in the browser)
-
+```
 🧱 Tech Stack
-
+```text
 React + Vite — fast modern frontend setup
 
 JavaScript (ES2020)
@@ -25,17 +25,20 @@ OpenWeather API — weather data
 Pexels API — inspirational images
 
 Real Inspire API — inspirational quotes
-
+```
 🚀 Setup Instructions
 1. Clone this repository
+```text
 git clone https://github.com/AmaniPaul/inspo-page.git
 cd inspo-page
-
-2. Install dependencies
+```
+3. Install dependencies
+```text
 npm install
+```
 
-3. Get API keys
-
+4. Get API keys
+```text
 You’ll need:
 
 🔑 OpenWeather
@@ -45,15 +48,14 @@ You’ll need:
  — for inspirational images
 
 The Real Inspire API does not require an API key.
-
+```
 4. Add environment variables
-
+```text
 Create a .env file in your project root:
 
 VITE_WEATHER_API_KEY=your_openweather_key_here
 VITE_PEXELS_API_KEY=your_pexels_key_here
-
-
+```
 ⚠️ All environment variables must start with VITE_ in Vite to be exposed to your app.
 
 5. Start the development server
@@ -62,7 +64,9 @@ npm run dev
 
 Then open the provided local URL (e.g. http://localhost:5173).
 
-🧩 Project Structure
+### 🧩 Project Structure
+
+```text
 focus-app/
 ├─ index.html
 ├─ vite.config.js
@@ -75,7 +79,7 @@ focus-app/
    │  ├─ fetchJson.js
    │  ├─ weather.js
    │  ├─ images.js
-   │  └─ quotes.js        
+   │  └─ quotes.js
    ├─ hooks/
    │  ├─ useWeather.js
    │  ├─ useImages.js
@@ -90,15 +94,14 @@ focus-app/
          ├─ GoalsList.jsx
          └─ GoalItem.jsx
 
+```
 💬 Quote Setup (Real Inspire API)
-
-The app now uses Real Inspire
- for random quotes.
+```text
+The app uses Real Inspire for random quotes.
 
 Endpoint example:
 
 https://real-inspire.vercel.app/api/quotes/random
-
 
 You can request one random quote like this:
 
@@ -121,15 +124,16 @@ export async function getRandomQuote() {
   "quote": "Success is not final, failure is not fatal: it is the courage to continue that counts.",
   "author": "Winston Churchill"
 }
-
+```
 🌅 Images (Pexels API)
-
+```text
 The app fetches images from Pexels’ /v1/search endpoint.
 Change the perPage value to control how many photos are loaded:
 
 getInspirationImages(topic = 'inspiration', perPage = 20);
-
+```
 🌤 Weather (OpenWeather API)
+```text
 Automatically detects your location
 
 Falls back to New York City if geolocation is blocked
@@ -137,8 +141,9 @@ Falls back to New York City if geolocation is blocked
 Switch between °C and °F using the dropdown (fully controlled)
 
 Displays temperature, “feels like,” and condition icons
-
+```
 🎯 Goals
+```text
 Add new daily goals
 
 Mark goals complete or delete them
@@ -146,16 +151,16 @@ Mark goals complete or delete them
 Goals persist in browser localStorage
 
 Simple reducer pattern (useReducer) for predictable state updates
-
+```
 
 👨‍💻 Author
-
+```text
 Developed by [Amani Paul]
 Junior, Computer Science Major 🧠
 Last updated: November 2025
-
+```
 ## 🤖 Use of AI Assistance
-
+```text
 This project was developed by [Your Name] with the support of OpenAI’s ChatGPT (GPT-5 model).  
 ChatGPT was used as a **development assistant** to:
 
@@ -165,3 +170,4 @@ ChatGPT was used as a **development assistant** to:
 - Help write human-readable documentation (including this README)
 
 All generated content was **reviewed, edited, and verified manually** to ensure correctness, code quality, and understanding of the material.
+```
